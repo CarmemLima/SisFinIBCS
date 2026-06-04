@@ -27,18 +27,58 @@ main {
     margin: 24px auto;
 }
 
+menu{
+    width: 70%;
+    height: 50px;
+    background-color: #245b74;
+    padding: 12px 40px;
+    display: flex;
+    gap: 20px;
+    border-radius: 8px 8px 8px 8px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.menu-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.card-visible {
+    background-color: white;
+    border: 1px solid #d9dee6;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  
+}
+
 .card {
     background-color: white;
     border: 1px solid #d9dee6;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
+    
 }
 
 .resumo {
     display: flex;
+    justify-content: center;
     gap: 16px;
     flex-wrap: wrap;
+
 }
 
 .resumo .card {

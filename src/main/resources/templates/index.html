@@ -12,19 +12,29 @@
     <p>Sistema Financeiro para Administração de Eventos da Igreja</p>
 </header>
 
+<section class="menu-links">
+   <menu>
+        <a href="#cadastrar-evento">Cadastrar Evento</a>
+        <a href="#cadastrar-lancamento">Cadastrar Lançamento</a>
+        <a href="#eventos-cadastrados">Eventos Cadastrados</a>
+        <a href="#lancamentos-financeiros">Lançamentos Financeiros</a>
+   </menu>
+</section>   
+
+
 <main>
     <section class="resumo">
-        <div class="card">
+        <div class="card-visible">
             <h3>Total de Entradas</h3>
             <p class="valor-entrada">R$ <span th:text="${totalEntradas}">0.00</span></p>
         </div>
 
-        <div class="card">
+        <div class="card-visible">
             <h3>Total de Saídas</h3>
             <p class="valor-saida">R$ <span th:text="${totalSaidas}">0.00</span></p>
         </div>
 
-        <div class="card">
+        <div class="card-visible">
             <h3>Saldo Atual</h3>
             <p class="valor-saldo">R$ <span th:text="${saldo}">0.00</span></p>
         </div>
