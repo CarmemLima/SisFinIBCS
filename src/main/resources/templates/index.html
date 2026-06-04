@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SisFinIBCS</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>SisFinIBCS</h1>
+    <p>Sistema Financeiro para Administração de Eventos da Igreja</p>
+</header>
+
+<main>
+    <section class="resumo">
+        <div class="card">
+            <h3>Total de Entradas</h3>
+            <p class="valor-entrada">R$ <span th:text="${totalEntradas}">0.00</span></p>
+        </div>
+
+        <div class="card">
+            <h3>Total de Saídas</h3>
+            <p class="valor-saida">R$ <span th:text="${totalSaidas}">0.00</span></p>
+        </div>
+
+        <div class="card">
+            <h3>Saldo Atual</h3>
+            <p class="valor-saldo">R$ <span th:text="${saldo}">0.00</span></p>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Cadastrar Evento</h2>
+
+        <form th:action="@{/eventos}" th:object="${novoEvento}" method="post">
+            <p>
+                <label>Nome do Evento:</label><br>
+                <input type="text" th:field="*{nome}" required>
+            </p>
+
+            <p>
+                <label>Categoria:</label><br>
+                <select th:field="*{categoria}" required>
+                    <option value="">Selecione</option>
+                    <option th:each="categoria : ${categorias}"
+                            th:value="${categoria}"
+                            th:text="${categoria}">
+                    </option>
+                </select>
+            </p>
+
+            <p>
+                <label>Data do Evento:</label><br>
+                <input type="date" th:field="*{dataEvento}" required>
+            </p>
+
+            <p>
+                <label>Descrição:</label><br>
+                <textarea th:field="*{descricao}" rows="3"></textarea>
+            </p>
+
+            <button type="submit">Salvar Evento</button>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>Cadastrar Lançamento Financeiro</h2>
+
+        <form th:action="@{/lancamentos}" th:object="${novoLancamento}" method="post">
+            <p>
+                <label>Evento:</label><br>
+                <select th:field="*{evento}" required>
+                    <option value="">Selecione</option>
+                    <option th:each="evento : ${eventos}"
+                            th:value="${evento.id}"
+                            th:text="${evento.nome}">
+                    </option>
+                </select>
+            </p>
+
+            <p>
+                <label>Tipo:</label><br>
+                <select th:field="*{tipo}" required>
+                    <option value="">Selecione</option>
+                    <option th:each="tipo : ${tiposLancamento}"
+                            th:value="${tipo}"
+                            th:text="${tipo}">
+                    </option>
+                </select>
+            </p>
+
+            <p>
+                <label>Descrição:</label><br>
+                <input type="text" th:field="*{descricao}" required>
+            </p>
+
+            <p>
+                <label>Valor:</label><br>
+                <input type="number" step="0.01" th:field="*{valor}" required>
+            </p>
+
+            <p>
+                <label>Data do Lançamento:</label><br>
+                <input type="date" th:field="*{dataLancamento}" required>
+            </p>
+
+            <button type="submit">Salvar Lançamento</button>
+        </form>
+    </section>
+
+    <section class="card">
+        <h2>Eventos Cadastrados</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="evento : ${eventos}">
+                    <td th:text="${evento.id}"></td>
+                    <td th:text="${evento.nome}"></td>
+                    <td th:text="${evento.categoria}"></td>
+                    <td th:text="${evento.dataEvento}"></td>
+                    <td th:text="${evento.descricao}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="card">
+        <h2>Lançamentos Financeiros</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                    <th>Tipo</th>
+                    <th>Evento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="lancamento : ${lancamentos}">
+                    <td th:text="${lancamento.id}"></td>
+                    <td th:text="${lancamento.descricao}"></td>
+                    <td th:text="${lancamento.valor}"></td>
+                    <td th:text="${lancamento.dataLancamento}"></td>
+                    <td th:text="${lancamento.tipo}"></td>
+                    <td th:text="${lancamento.evento != null ? lancamento.evento.nome : '-'}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+</body>
+</html>
