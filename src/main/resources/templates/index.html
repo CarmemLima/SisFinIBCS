@@ -15,7 +15,7 @@
 <section class="menu-links">
    <menu>
         <a href="#cadastrar-evento">Cadastrar Evento</a>
-        <a href="#cadastrar-lancamento">Cadastrar Lançamento</a>
+        <a href="#cadastrar-lancamento-financeiro">Cadastrar Lançamento Financeiro</a>
         <a href="#eventos-cadastrados">Eventos Cadastrados</a>
         <a href="#lancamentos-financeiros">Lançamentos Financeiros</a>
    </menu>
@@ -41,7 +41,7 @@
     </section>
 
     <section class="card">
-        <h2>Cadastrar Evento</h2>
+        <h2 id="cadastrar-evento">Cadastrar Evento</h2>
 
         <form th:action="@{/eventos}" th:object="${novoEvento}" method="post">
             <p>
@@ -75,7 +75,7 @@
     </section>
 
     <section class="card">
-        <h2>Cadastrar Lançamento Financeiro</h2>
+        <h2 id="cadastrar-lancamento-financeiro">Cadastrar Lançamento Financeiro</h2>
 
         <form th:action="@{/lancamentos}" th:object="${novoLancamento}" method="post">
             <p>
@@ -120,7 +120,7 @@
     </section>
 
     <section class="card">
-        <h2>Eventos Cadastrados</h2>
+        <h2 id="eventos-cadastrados">Eventos Cadastrados</h2>
 
         <table>
             <thead>
@@ -145,7 +145,7 @@
     </section>
 
     <section class="card">
-        <h2>Lançamentos Financeiros</h2>
+        <h2 id="lancamentos-financeiros">Lançamentos Financeiros</h2>
 
         <table>
             <thead>
