@@ -1,5 +1,5 @@
 # SisFinIBCS
-Projeto SisFinIBCS - Sistema Financeiro Igreja Batista Centro Sul.
+Projeto SisFinIBCS - Sistema Financeiro para igreja local
 
 Aplicação web desenvolvida como projeto acadêmico, com o objetivo de aplicar, de forma prática, conhecimentos adquiridos ao longo da graduação no desenvolvimento de uma solução voltada a uma necessidade real da comunidade local.
 
